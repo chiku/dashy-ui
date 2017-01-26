@@ -1,6 +1,0 @@
-hash: fe3749c189c8906abc2e049debf8e097595825e5f96ca6c197da4bc902839071
-updated: 2017-01-24T22:21:58.383841812+05:30
-imports:
-- name: github.com/chiku/gocd
-  version: ed132c105deebbeda517924b7758da17290dcca0
-testImports: []

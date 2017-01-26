@@ -30,11 +30,11 @@
     "webpack": "^1.14.0"
   },
   "scripts": {
-    "clean": "rimraf ./out/public/*",
+    "clean": "rimraf ./out",
     "compile": "webpack && gulp favicon-compile css-compile html-compile",
-    "lint": "eslint ./javascript . && gulp css-format html-format",
-    "lint:fix": "eslint ./javascript . --fix",
-    "mocha": "mocha javascript/test/**/*.test.js",
+    "lint": "eslint ./src ./test . && gulp css-format html-format",
+    "lint:fix": "eslint ./src ./test . --fix",
+    "mocha": "mocha test/**/*.test.js",
     "test": "npm run lint && npm run mocha"
   }
 }

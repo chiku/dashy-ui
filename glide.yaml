@@ -1,3 +1,0 @@
-package: github.com/chiku/dashy
-import:
-- package: github.com/chiku/gocd

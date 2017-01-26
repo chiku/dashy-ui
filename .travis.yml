@@ -1,8 +1,5 @@
-language: go
+language: node_js
 
-env: GO15VENDOREXPERIMENT=1
-
-go:
-  - 1.5
-  - 1.6
-  - 1.7
+script:
+  - ./build.sh
+  - ./package.js
