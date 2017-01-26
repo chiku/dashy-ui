@@ -4,22 +4,20 @@
 // Copyright:: Copyright (c) 2015-2017. All rights reserved
 // License::   MIT
 
-var Stage = require("./Stage");
+const Stage = require('./Stage');
 
-var stageContainerProps = {
-    class: "stage-container"
+const stageContainerProps = {
+  class: 'stage-container',
 };
 
-var StageList = function StageList() {
-    var render = function (stages) {
-        return ["div", stageContainerProps, stages.map(function (stage) {
-            return [Stage, stage];
-        })];
-    };
+const StageList = function StageList() {
+  const render = function (stages) {
+    return ['div', stageContainerProps, stages.map(stage => [Stage, stage])];
+  };
 
-    return {
-        render: render
-    };
+  return {
+    render,
+  };
 };
 
 module.exports = StageList;

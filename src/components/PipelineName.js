@@ -4,18 +4,18 @@
 // Copyright:: Copyright (c) 2015-2017. All rights reserved
 // License::   MIT
 
-var pipelineNameProps = {
-    class: "pipeline-name"
+const pipelineNameProps = {
+  class: 'pipeline-name',
 };
 
-var PipelineName = function PipelineName() {
-    var render = function (name) {
-        return ["div", pipelineNameProps, name];
-    };
+const PipelineName = function PipelineName() {
+  const render = function (name) {
+    return ['div', pipelineNameProps, name];
+  };
 
-    return {
-        render: render
-    };
+  return {
+    render,
+  };
 };
 
 module.exports = PipelineName;

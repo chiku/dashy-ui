@@ -4,23 +4,23 @@
 // Copyright:: Copyright (c) 2015-2017. All rights reserved
 // License::   MIT
 
-var StageList = require("./StageList");
-var PipelineName = require("./PipelineName");
+const StageList = require('./StageList');
+const PipelineName = require('./PipelineName');
 
-var Pipeline = function Pipeline() {
-    var pipelineProps = {
-        class: "pipeline"
-    };
-    var render = function (pipeline) {
-        return ["div", pipelineProps, [
+const Pipeline = function Pipeline() {
+  const pipelineProps = {
+    class: 'pipeline',
+  };
+  const render = function (pipeline) {
+    return ['div', pipelineProps, [
             [StageList, pipeline.stages],
-            [PipelineName, pipeline.name]
-        ]];
-    };
+            [PipelineName, pipeline.name],
+    ]];
+  };
 
-    return {
-        render: render
-    };
+  return {
+    render,
+  };
 };
 
 module.exports = Pipeline;

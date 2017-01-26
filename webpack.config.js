@@ -16,6 +16,17 @@ module.exports = {
 
     devtool: 'source-map',
 
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            exclude: /(bower_components)/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015']
+            }
+        }]
+    },
+
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),

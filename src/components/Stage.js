@@ -4,17 +4,17 @@
 // Copyright:: Copyright (c) 2015-2017. All rights reserved
 // License::   MIT
 
-var Stage = function Stage() {
-    var render = function (stage) {
-        var stageProps = {
-            class: "stage " + stage.status.toLowerCase()
-        };
-        return ["div", stageProps, stage.name];
+const Stage = function Stage() {
+  const render = function (stage) {
+    const stageProps = {
+      class: `stage ${stage.status.toLowerCase()}`,
     };
+    return ['div', stageProps, stage.name];
+  };
 
-    return {
-        render: render
-    };
+  return {
+    render,
+  };
 };
 
 module.exports = Stage;

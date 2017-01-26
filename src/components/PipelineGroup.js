@@ -4,21 +4,19 @@
 // Copyright:: Copyright (c) 2015-2017. All rights reserved
 // License::   MIT
 
-var Pipeline = require("./Pipeline");
+const Pipeline = require('./Pipeline');
 
-var PipelineGroup = function PipelineGroup() {
-    var render = function (pipelines) {
-        var groupProps = {
-            class: "pipeline-group pipeline-group-" + pipelines.length
-        };
-        return ["div", groupProps, pipelines.map(function (pipeline) {
-            return [Pipeline, pipeline];
-        })];
+const PipelineGroup = function PipelineGroup() {
+  const render = function (pipelines) {
+    const groupProps = {
+      class: `pipeline-group pipeline-group-${pipelines.length}`,
     };
+    return ['div', groupProps, pipelines.map(pipeline => [Pipeline, pipeline])];
+  };
 
-    return {
-        render: render
-    };
+  return {
+    render,
+  };
 };
 
 module.exports = PipelineGroup;
