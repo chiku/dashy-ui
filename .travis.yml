@@ -7,4 +7,4 @@ node_js:
 
 script:
   - ./build.sh
-  - ./package.js
+  - ./package.sh
