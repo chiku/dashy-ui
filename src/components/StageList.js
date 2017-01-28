@@ -10,10 +10,8 @@ const stageContainerProps = {
   class: 'stage-container',
 };
 
-const StageList = function StageList() {
-  const render = function (stages) {
-    return ['div', stageContainerProps, stages.map(stage => [Stage, stage])];
-  };
+const StageList = () => {
+  const render = stages => ['div', stageContainerProps, stages.map(stage => [Stage, stage])];
 
   return {
     render,

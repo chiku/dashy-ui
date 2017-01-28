@@ -35,7 +35,7 @@ describe('PipelineGroup', () => {
       stages: pipelineTwoStages,
     };
 
-    const pipelineGroup = new PipelineGroup().render([pipelineOne, pipelineTwo]);
+    const pipelineGroup = PipelineGroup().render([pipelineOne, pipelineTwo]);
 
     it('has creates a DOM representation', () => {
       expect(pipelineGroup[0]).to.equal('div');

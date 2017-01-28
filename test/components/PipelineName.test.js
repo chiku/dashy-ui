@@ -10,7 +10,7 @@ const PipelineName = require('../../src/components/PipelineName');
 
 describe('PipelineName', () => {
   describe('#render', () => {
-    const stage = new PipelineName().render('Dashy');
+    const stage = PipelineName().render('Dashy');
 
     it('creates a DOM representation', () => {
       expect(stage[0]).to.equal('div');

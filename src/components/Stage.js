@@ -4,8 +4,8 @@
 // Copyright:: Copyright (c) 2015-2017. All rights reserved
 // License::   MIT
 
-const Stage = function Stage() {
-  const render = function (stage) {
+const Stage = () => {
+  const render = (stage) => {
     const stageProps = {
       class: `stage ${stage.status.toLowerCase()}`,
     };

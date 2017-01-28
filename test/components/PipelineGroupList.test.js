@@ -36,7 +36,7 @@ describe('PipelineGroupList', () => {
     };
 
     describe('when group-size is less than total pipelines', () => {
-      const pipelineList = new PipelineGroupLister(1)().render([pipelineOne, pipelineTwo]);
+      const pipelineList = PipelineGroupLister(1)().render([pipelineOne, pipelineTwo]);
 
       it('has more than one pipeline group', () => {
         expect(pipelineList).to.have.length(2);
@@ -54,7 +54,7 @@ describe('PipelineGroupList', () => {
     });
 
     describe('when group-size equals the number of pipelines', () => {
-      const pipelineList = new PipelineGroupLister(2)().render([pipelineOne, pipelineTwo]);
+      const pipelineList = PipelineGroupLister(2)().render([pipelineOne, pipelineTwo]);
 
       it('has a single pipeline group with all pipelines', () => {
         expect(pipelineList).to.have.length(1);
@@ -70,7 +70,7 @@ describe('PipelineGroupList', () => {
     });
 
     describe('when group-size is 3', () => {
-      const pipelineList = new PipelineGroupLister(3)().render([pipelineOne, pipelineTwo]);
+      const pipelineList = PipelineGroupLister(3)().render([pipelineOne, pipelineTwo]);
 
       it('does not fill out the first pipeline group', () => {
         expect(pipelineList).to.have.length(1);

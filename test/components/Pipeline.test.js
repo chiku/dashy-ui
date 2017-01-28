@@ -20,7 +20,7 @@ describe('Pipeline', () => {
       name: 'Test',
       status: 'Building',
     };
-    const pipeline = new Pipeline().render({
+    const pipeline = Pipeline().render({
       name: 'Dashy',
       stages: [stageOne, stageTwo],
     });

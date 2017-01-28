@@ -6,8 +6,8 @@
 
 const Pipeline = require('./Pipeline');
 
-const PipelineGroup = function PipelineGroup() {
-  const render = function (pipelines) {
+const PipelineGroup = () => {
+  const render = (pipelines) => {
     const groupProps = {
       class: `pipeline-group pipeline-group-${pipelines.length}`,
     };

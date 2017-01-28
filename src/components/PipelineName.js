@@ -8,10 +8,8 @@ const pipelineNameProps = {
   class: 'pipeline-name',
 };
 
-const PipelineName = function PipelineName() {
-  const render = function (name) {
-    return ['div', pipelineNameProps, name];
-  };
+const PipelineName = () => {
+  const render = name => ['div', pipelineNameProps, name];
 
   return {
     render,

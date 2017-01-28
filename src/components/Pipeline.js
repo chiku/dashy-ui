@@ -7,16 +7,17 @@
 const StageList = require('./StageList');
 const PipelineName = require('./PipelineName');
 
-const Pipeline = function Pipeline() {
-  const pipelineProps = {
-    class: 'pipeline',
-  };
-  const render = function (pipeline) {
-    return ['div', pipelineProps, [
-            [StageList, pipeline.stages],
-            [PipelineName, pipeline.name],
-    ]];
-  };
+const pipelineProps = {
+  class: 'pipeline',
+};
+
+const Pipeline = () => {
+  const render = pipeline => ['div',
+    pipelineProps, [
+      [StageList, pipeline.stages],
+      [PipelineName, pipeline.name],
+    ],
+  ];
 
   return {
     render,

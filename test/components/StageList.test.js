@@ -19,7 +19,7 @@ describe('StageList', () => {
       name: 'Test',
       status: 'Building',
     };
-    const stageList = new StageList().render([stageOne, stageTwo]);
+    const stageList = StageList().render([stageOne, stageTwo]);
 
     it('creates a DOM representation', () => {
       expect(stageList[0]).to.equal('div');

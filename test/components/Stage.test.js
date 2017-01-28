@@ -10,7 +10,7 @@ const Stage = require('../../src/components/Stage');
 
 describe('Stage', () => {
   describe('#render', () => {
-    const stage = new Stage().render({
+    const stage = Stage().render({
       name: 'Test',
       status: 'building',
     });
@@ -30,7 +30,7 @@ describe('Stage', () => {
     });
 
     describe('when status is not in all lower-case', () => {
-      const stageUpcase = new Stage().render({
+      const stageUpcase = Stage().render({
         name: 'Test',
         status: 'Building',
       });

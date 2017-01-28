@@ -18,11 +18,9 @@ const interval = config.interval || 30000;
 const groupSize = config.groupSize || 1;
 const baseSize = config.baseSize || 6;
 
-const isSuccess = function (code) {
-  return code >= 200 && code <= 299;
-};
+const isSuccess = code => code >= 200 && code <= 299;
 
-const initCSS = function () {
+const initCSS = () => {
   const a1 = baseSize;
   const a2 = baseSize * 0.986111;
   const a3 = baseSize * 0.833334;
@@ -38,7 +36,7 @@ const initCSS = function () {
   document.getElementsByTagName('head')[0].appendChild(style);
 };
 
-const asError = function (message, code) {
+const asError = (message, code) => {
   const defaultedMessage = (code === 0) ? 'Error - server down' : message;
   return [{
     name: defaultedMessage,
@@ -49,9 +47,9 @@ const asError = function (message, code) {
   }];
 };
 
-const Dashy = function (emit, refresh) {
+const Dashy = (emit, refresh) => {
   let pipelines = [];
-  const responseHandler = function (code, responseText) {
+  const responseHandler = (code, responseText) => {
     if (isSuccess(code)) {
       pipelines = JSON.parse(responseText);
     } else {
@@ -66,12 +64,10 @@ const Dashy = function (emit, refresh) {
     type: 'POST',
     body: requestBody,
   };
-  const tick = function () {
+  const tick = () => {
     nanoajax.ajax(ajaxOptions, responseHandler);
   };
-  const render = function () {
-    return [PipelineGroupLister(groupSize), pipelines];
-  };
+  const render = () => [PipelineGroupLister(groupSize), pipelines];
 
   tick();
   setInterval(tick, interval);
