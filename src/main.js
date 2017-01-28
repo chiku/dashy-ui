@@ -6,17 +6,17 @@
 
 const domChanger = require('domchanger');
 const nanoajax = require('nanoajax');
-const PipelineGroupLister = require('./components/PipelineGroupList');
 
-const config = window.config || {};
+const config = require('./config')(window.config || {});
+const PipelineGroupLister = require('./components/PipelineGroupList');
 
 const requestBody = JSON.stringify({
   url: config.url,
   interests: config.interests,
 });
-const interval = config.interval || 30000;
-const groupSize = config.groupSize || 1;
-const baseSize = config.baseSize || 6;
+const interval = config.interval;
+const groupSize = config.groupSize;
+const baseSize = config.baseSize;
 
 const isSuccess = code => code >= 200 && code <= 299;
 
@@ -54,8 +54,6 @@ const Dashy = (emit, refresh) => {
       pipelines = JSON.parse(responseText);
     } else {
       pipelines = asError(responseText, code);
-            /* eslint "no-console": 0 */
-      console.error(responseText);
     }
     refresh();
   };

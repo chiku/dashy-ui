@@ -40,9 +40,9 @@
   "scripts": {
     "clean": "rimraf ./out",
     "compile": "webpack && gulp favicon-compile css-compile html-compile",
-    "lint": "eslint ./src ./test . && htmlhint public/*.html && csslint public/*.css",
+    "lint": "eslint ./src ./test . && htmlhint 'public/*.html' && csslint 'public/main.css'",
     "lint:fix": "eslint ./src ./test . --fix && gulp html-format css-format",
-    "mocha": "mocha --compilers js:babel-core/register test/**/*.test.js",
+    "mocha": "mocha --compilers js:babel-core/register 'test/**/*.test.js'",
     "mocha:watch": "npm run mocha -- --watch --reporter dot",
     "test": "npm run lint && npm run mocha"
   }
