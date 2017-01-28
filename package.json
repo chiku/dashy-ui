@@ -17,13 +17,14 @@
     "nanoajax": "^0.4.3"
   },
   "engines": {
-   "node": ">=6.0.0"
+    "node": ">=6.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.22.0",
     "chai": "^3.5.0",
+    "csslint": "^1.0.5",
     "eslint": "^3.12.2",
     "eslint-config-airbnb-base": "^11.0.0",
     "eslint-plugin-import": "^2.2.0",
@@ -31,6 +32,7 @@
     "gulp-cssnano": "^2.1.2",
     "gulp-htmlmin": "^3.0.0",
     "gulp-jsbeautifier": "^2.0.4",
+    "htmlhint": "^0.9.13",
     "mocha": "^3.2.0",
     "rimraf": "^2.5.4",
     "webpack": "^1.14.0"
@@ -38,8 +40,8 @@
   "scripts": {
     "clean": "rimraf ./out",
     "compile": "webpack && gulp favicon-compile css-compile html-compile",
-    "lint": "eslint ./src ./test . && gulp css-format html-format",
-    "lint:fix": "eslint ./src ./test . --fix",
+    "lint": "eslint ./src ./test . && htmlhint public/*.html && csslint public/*.css",
+    "lint:fix": "eslint ./src ./test . --fix && gulp html-format css-format",
     "mocha": "mocha --compilers js:babel-core/register test/**/*.test.js",
     "mocha:watch": "npm run mocha -- --watch --reporter dot",
     "test": "npm run lint && npm run mocha"
