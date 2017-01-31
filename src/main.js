@@ -9,6 +9,9 @@ const nanoajax = require('nanoajax');
 
 const config = require('./config')(window.config || {});
 const PipelineGroupLister = require('./components/PipelineGroupList');
+const pipelineError = require('./lib/pipelineError');
+const cssContent = require('./lib/cssContent');
+const isSuccess = require('./lib/isSuccess');
 
 const requestBody = JSON.stringify({
   url: config.url,
@@ -18,49 +21,24 @@ const interval = config.interval;
 const groupSize = config.groupSize;
 const baseSize = config.baseSize;
 
-const isSuccess = code => code >= 200 && code <= 299;
-
-const initCSS = () => {
-  const a1 = baseSize;
-  const a2 = baseSize * 0.986111;
-  const a3 = baseSize * 0.833334;
-  const a4 = baseSize * 0.125;
-
-  const cssContent = `.pipeline-name {height: ${a1}vmax; margin-top: ${-a2}vmax; font-size: ${a3}vmax;}` +
-        ` .stage-container {height: ${a1}vmax;}` +
-        ` .stage {font-size: ${a4}vmax;}`;
-
-  const style = document.createElement('style');
-  style.type = 'text/css';
-  style.innerHTML = cssContent;
-  document.getElementsByTagName('head')[0].appendChild(style);
+const ajaxOptions = {
+  url: '/dashy',
+  type: 'POST',
+  body: requestBody,
 };
 
-const asError = (message, code) => {
-  const defaultedMessage = (code === 0) ? 'Error - server down' : message;
-  return [{
-    name: defaultedMessage,
-    stages: [{
-      name: 'Error',
-      status: 'Failed',
-    }],
-  }];
+const initCSS = () => {
+  const style = document.createElement('style');
+  style.type = 'text/css';
+  style.innerHTML = cssContent(baseSize);
+  document.getElementsByTagName('head')[0].appendChild(style);
 };
 
 const Dashy = (emit, refresh) => {
   let pipelines = [];
   const responseHandler = (code, responseText) => {
-    if (isSuccess(code)) {
-      pipelines = JSON.parse(responseText);
-    } else {
-      pipelines = asError(responseText, code);
-    }
+    pipelines = (isSuccess(code)) ? JSON.parse(responseText) : pipelineError(responseText, code);
     refresh();
-  };
-  const ajaxOptions = {
-    url: '/dashy',
-    type: 'POST',
-    body: requestBody,
   };
   const tick = () => {
     nanoajax.ajax(ajaxOptions, responseHandler);
