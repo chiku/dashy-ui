@@ -1,5 +1,6 @@
 # Project specific
 out/
+.nyc_output/
 public/config.js
 dashy.zip
 dashy.log
