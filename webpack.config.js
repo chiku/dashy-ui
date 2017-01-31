@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/main.js',
@@ -6,12 +6,12 @@ module.exports = {
   output: {
     path: __dirname,
     filename: 'out/public/app.js',
-    publicPath: '/public/'
+    publicPath: '/public/',
   },
 
   stats: {
     colors: true,
-    reasons: true
+    reasons: true,
   },
 
   devtool: 'source-map',
@@ -20,12 +20,12 @@ module.exports = {
     rules: [{
       test: /\.js$/,
       loader: 'babel-loader',
-    }]
+    }],
   },
 
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
     }),
-  ]
+  ],
 };

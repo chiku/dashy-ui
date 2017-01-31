@@ -2,24 +2,8 @@
     "env": {
         "node": true
     },
-    "extends": "airbnb-base/legacy",
+    "extends": "airbnb-base",
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
         "no-console": 0
     }
 }

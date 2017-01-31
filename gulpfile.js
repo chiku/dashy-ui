@@ -4,41 +4,31 @@
 // Copyright:: Copyright (c) 2015-2017. All rights reserved
 // License::   MIT
 
-var gulp = require('gulp');
-var cssnano = require('gulp-cssnano');
-var htmlmin = require('gulp-htmlmin');
-var jsbeautifier = require('gulp-jsbeautifier');
+const gulp = require('gulp');
+const cssnano = require('gulp-cssnano');
+const htmlmin = require('gulp-htmlmin');
+const jsbeautifier = require('gulp-jsbeautifier');
 
-gulp.task('css-compile', function () {
-    return gulp.src('./public/main.css')
+gulp.task('css-compile', () => gulp.src('./public/main.css')
         .pipe(cssnano())
-        .pipe(gulp.dest('./out/public'));
-});
+        .pipe(gulp.dest('./out/public')));
 
-gulp.task('css-format', function () {
-    return gulp.src(['./public/main.css'])
+gulp.task('css-format', () => gulp.src(['./public/main.css'])
         .pipe(jsbeautifier())
-        .pipe(gulp.dest('./public'));
-});
+        .pipe(gulp.dest('./public')));
 
-gulp.task('html-compile', function () {
-    return gulp.src('./public/index.html')
+gulp.task('html-compile', () => gulp.src('./public/index.html')
         .pipe(htmlmin({
-            collapseWhitespace: true
+          collapseWhitespace: true,
         }))
-        .pipe(gulp.dest('./out/public'));
-});
+        .pipe(gulp.dest('./out/public')));
 
-gulp.task('html-format', function () {
-    return gulp.src(['./public/index.html'])
+gulp.task('html-format', () => gulp.src(['./public/index.html'])
         .pipe(jsbeautifier())
-        .pipe(gulp.dest('./public'));
-});
+        .pipe(gulp.dest('./public')));
 
-gulp.task('favicon-compile', function () {
-    return gulp.src('./public/favicon.ico')
-        .pipe(gulp.dest('./out/public'));
-});
+gulp.task('favicon-compile', () => gulp.src('./public/favicon.ico')
+        .pipe(gulp.dest('./out/public')));
 
 gulp.task('format', ['css-format', 'html-format']);
 gulp.task('compile', ['html-compile', 'css-compile', 'favicon-compile']);
