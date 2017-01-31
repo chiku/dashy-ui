@@ -27,11 +27,8 @@ gulp.task('html-format', () => gulp.src(['./public/index.html'])
         .pipe(jsbeautifier())
         .pipe(gulp.dest('./public')));
 
-gulp.task('favicon-compile', () => gulp.src('./public/favicon.ico')
-        .pipe(gulp.dest('./out/public')));
-
 gulp.task('format', ['css-format', 'html-format']);
-gulp.task('compile', ['html-compile', 'css-compile', 'favicon-compile']);
+gulp.task('compile', ['html-compile', 'css-compile']);
 
 gulp.task('build', ['format', 'compile']);
 

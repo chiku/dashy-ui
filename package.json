@@ -34,12 +34,13 @@
     "gulp-jsbeautifier": "^2.0.4",
     "htmlhint": "^0.9.13",
     "mocha": "^3.2.0",
+    "ncp": "^2.0.0",
     "rimraf": "^2.5.4",
     "webpack": "^2.2.1"
   },
   "scripts": {
     "clean": "rimraf ./out",
-    "compile": "webpack && gulp favicon-compile css-compile html-compile",
+    "compile": "webpack && ncp public/favicon.ico out/public/favicon.ico && gulp css-compile html-compile",
     "lint": "eslint ./src ./test . && htmlhint 'public/*.html' && csslint 'public/main.css'",
     "lint:fix": "eslint ./src ./test . --fix && gulp html-format css-format",
     "mocha": "mocha --compilers js:babel-core/register 'test/**/*.test.js'",
