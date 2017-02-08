@@ -11,7 +11,7 @@ const cssContent = (baseSize) => {
   const a4 = baseSize * 0.125;
 
   return `.pipeline-name {height: ${a1}vmax; margin-top: ${-a2}vmax; font-size: ${a3}vmax;}` +
-        ` .stage-container {height: ${a1}vmax;}` +
+        ` .stages-container {height: ${a1}vmax;}` +
         ` .stage {font-size: ${a4}vmax;}`;
 };
 

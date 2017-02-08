@@ -7,7 +7,7 @@
 const Stage = require('./Stage');
 
 const stageContainerProps = {
-  class: 'stage-container',
+  class: 'stages-container',
 };
 
 const StageList = () => {

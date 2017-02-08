@@ -21,7 +21,7 @@ describe('Stage', () => {
 
     it('has CSS class based on its status', () => {
       expect(stage[1]).to.deep.equal({
-        class: 'stage building',
+        class: 'stage stage-building',
       });
     });
 
@@ -37,7 +37,7 @@ describe('Stage', () => {
 
       it('has a lower-name CSS class name', () => {
         expect(stageUpcase[1]).to.deep.equal({
-          class: 'stage building',
+          class: 'stage stage-building',
         });
       });
     });

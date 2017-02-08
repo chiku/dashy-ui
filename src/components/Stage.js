@@ -7,7 +7,7 @@
 const Stage = () => {
   const render = (stage) => {
     const stageProps = {
-      class: `stage ${stage.status.toLowerCase()}`,
+      class: `stage stage-${stage.status.toLowerCase()}`,
     };
     return ['div', stageProps, stage.name];
   };

@@ -27,7 +27,7 @@ describe('StageList', () => {
 
     it('has CSS class', () => {
       expect(stageList[1]).to.deep.equal({
-        class: 'stage-container',
+        class: 'stages-container',
       });
     });
 
