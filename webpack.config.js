@@ -1,3 +1,9 @@
+// webpack.config.js
+//
+// Author::    Chirantan Mitra
+// Copyright:: Copyright (c) 2017. All rights reserved
+// License::   MIT
+
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
