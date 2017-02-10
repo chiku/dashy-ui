@@ -5,31 +5,15 @@
 // License::   MIT
 
 const gulp = require('gulp');
-const cssnano = require('gulp-cssnano');
-const htmlmin = require('gulp-htmlmin');
 const jsbeautifier = require('gulp-jsbeautifier');
 
-gulp.task('css-compile', () => gulp.src('./public/main.css')
-        .pipe(cssnano())
-        .pipe(gulp.dest('./out/public')));
-
-gulp.task('css-format', () => gulp.src(['./public/main.css'])
+gulp.task('css-format', () => gulp.src(['./src/main.css'])
         .pipe(jsbeautifier())
-        .pipe(gulp.dest('./public')));
+        .pipe(gulp.dest('./src')));
 
-gulp.task('html-compile', () => gulp.src('./public/index.html')
-        .pipe(htmlmin({
-          collapseWhitespace: true,
-        }))
-        .pipe(gulp.dest('./out/public')));
-
-gulp.task('html-format', () => gulp.src(['./public/index.html'])
+gulp.task('html-format', () => gulp.src(['./src/index.html'])
         .pipe(jsbeautifier())
-        .pipe(gulp.dest('./public')));
+        .pipe(gulp.dest('./src')));
 
 gulp.task('format', ['css-format', 'html-format']);
-gulp.task('compile', ['html-compile', 'css-compile']);
-
-gulp.task('build', ['format', 'compile']);
-
-gulp.task('default', ['build']);
+gulp.task('default', ['format']);
