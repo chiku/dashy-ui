@@ -4,6 +4,7 @@
 // Copyright:: Copyright (c) 2017. All rights reserved
 // License::   MIT
 
+const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -15,7 +16,7 @@ module.exports = {
   ],
 
   output: {
-    path: './out/public',
+    path: path.join(__dirname, 'out', 'public'),
     filename: 'app.js',
     publicPath: '/',
   },
