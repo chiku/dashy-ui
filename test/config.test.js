@@ -4,7 +4,7 @@
 // Copyright:: Copyright (c) 2015-2017. All rights reserved
 // License::   MIT
 
-const expect = require('chai').expect;
+const { expect } = require('chai');
 
 const config = require('../src/config');
 

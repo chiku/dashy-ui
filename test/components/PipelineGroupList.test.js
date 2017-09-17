@@ -4,7 +4,7 @@
 // Copyright:: Copyright (c) 2015-2017. All rights reserved
 // License::   MIT
 
-const expect = require('chai').expect;
+const { expect } = require('chai');
 
 const PipelineGroup = require('../../src/components/PipelineGroup');
 const PipelineGroupLister = require('../../src/components/PipelineGroupList');

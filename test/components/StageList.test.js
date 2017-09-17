@@ -4,7 +4,7 @@
 // Copyright:: Copyright (c) 2015-2017. All rights reserved
 // License::   MIT
 
-const expect = require('chai').expect;
+const { expect } = require('chai');
 
 const Stage = require('../../src/components/Stage');
 const StageList = require('../../src/components/StageList');

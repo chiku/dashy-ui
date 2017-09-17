@@ -17,9 +17,7 @@ const requestBody = JSON.stringify({
   url: config.url,
   interests: config.interests,
 });
-const interval = config.interval;
-const groupSize = config.groupSize;
-const baseSize = config.baseSize;
+const { interval, groupSize, baseSize } = config;
 
 const ajaxOptions = {
   url: '/dashy',
