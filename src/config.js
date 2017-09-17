@@ -6,12 +6,12 @@
 
 const create = (conf) => {
   const {
-        url,
-        interests,
-        interval = 30000,
-         groupSize = 1,
-         baseSize = 6,
-        } = conf;
+    url,
+    interests,
+    interval = 30000,
+    groupSize = 1,
+    baseSize = 6,
+  } = conf;
 
   return {
     url,
